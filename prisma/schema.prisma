@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator nextAdmin {
+  provider = "next-admin-generator-prisma"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id             Int     @id @default(autoincrement())
+  login          String  @unique
+  hashedPassword String?
+  firstName      String
+  lastName       String
+  group          Group[]
+  role           Role[]
+  profileImage   String?
+  passkeys       Passkey[]            @relation("customerPasskey")
+  pushSubscription PushSubscription[] @relation("customerSub")
+}
+
+model Group {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
+  customers Customer[]
+}
+
+model Passkey {
+  id                Int        @id @default(autoincrement())
+  credentialId      String
+  publicKey         String
+  prevCounter       Int
+  customerId        Int
+  customer          Customer @relation("customerPasskey", fields: [customerId], references: [id])
+  lastLogonTime     DateTime?
+}
+
+model PushSubscription {
+  id                Int        @id @default(autoincrement())
+  endpoint          String
+  keys              Json
+  customerId        Int?
+  customer          Customer? @relation("customerSub", fields: [customerId], references: [id])
+}
+
+enum Role {
+  USER
+  ADMIN
+  SUPPORT
+}

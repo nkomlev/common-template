@@ -1,0 +1,7 @@
+.registration-form {
+    @apply w-80 h-fit p-6 bg-secondary/50 rounded-xl flex flex-col gap-6;
+}
+
+.inputs-container {
+    @apply flex flex-col gap-4;
+}
