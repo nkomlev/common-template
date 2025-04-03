@@ -1,4 +1,4 @@
-import MainTemplate from "@/components/templates/MainTemplate";
+import MainTemplate from "@/components/template/MainTemplate";
 import InstallPrompt from "@/components/pwa/InstallPrompt";
 import PushNotificationManager from "@/components/pwa/PushNotificationManager";
 
