@@ -13,18 +13,18 @@ import {
 import { useWebAuthn } from "@/lib/hooks/useWebAuthn";
 
 const WebAuthnRegistrationDialog = () => {
-  const { showWebAuthnRegistrationMessage, currentCustomer } = useStore();
+  const { showWebAuthnRegistrationMessage, currentCustomer, setShowWebAuthnRegistrationMessage } = useStore();
   const { isWebAuthnSupported, register } = useWebAuthn();
 
   const handleRegistration = async () => {
     if (currentCustomer.id) {
       await register(currentCustomer);
 
-      useStore.setState({ showWebAuthnRegistrationMessage: false });
+      setShowWebAuthnRegistrationMessage(false);
     }
   }
   const handleCancel = () => {
-    useStore.setState({ showWebAuthnRegistrationMessage: false });
+    setShowWebAuthnRegistrationMessage(false);
   }
 
   if (!isWebAuthnSupported || !currentCustomer?.id) {

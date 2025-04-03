@@ -1,9 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { subscribeUser, unsubscribeUser, sendNotification } from '@/server/actions/webPush'
-import { InputWithTitle } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { useDictionary } from "@/components/dictionaryProvider/DictionaryProvider";
+import { subscribeUser, unsubscribeUser, sendNotification } from "@/server/functions/webPush";
+import { InputWithTitle } from "@common-templates/shared/components/ui/input";
+import { Button } from "@common-templates/shared/components/ui/button";
 import { useStore } from "@/store/useStore";
 import GroupSelect from "@/components/groupSelect/GroupSelect";
 
@@ -27,7 +26,6 @@ function PushNotificationManager() {
   const [subscription, setSubscription] = useState(null);
   const [message, setMessage] = useState('');
   const [selectedGroup, setSelectedGroup] = useState('');
-  const dictionary = useDictionary();
 
   useEffect(() => {
     if ('serviceWorker' in navigator && 'PushManager' in window) {
@@ -74,29 +72,25 @@ function PushNotificationManager() {
 
   if (!isSupported) {
     return <p>
-      {dictionary.LEX_20}
-      {/* Пуш уведомления не поддержаны в вашем браузере */}
+      Пуш уведомления не поддержаны в вашем браузере
     </p>;
   }
 
   return (
     <div>
       <h3 className="text-xl font-bold mb-4">
-        {dictionary.LEX_21}
-        {/* Пуш уведомления */}
+        Пуш уведомления
       </h3>
       {subscription ? (
         <div className="flex flex-col gap-4 max-w-80">
           <p>
-            {dictionary.LEX_22}
-            {/* Вы подписаны на уведомления */}
+            Вы подписаны на уведомления
           </p>
           <Button onClick={unsubscribeFromPush}>
-            {dictionary.LEX_23}
-            {/* Отписаться */}
+            Отписаться
           </Button>
           <InputWithTitle
-            title={dictionary.LEX_24} // Текст уведомления
+            title="Текст уведомления"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
@@ -105,19 +99,16 @@ function PushNotificationManager() {
             setSelectedGroup={setSelectedGroup}
           />
           <Button onClick={sendTestNotification}>
-            {dictionary.LEX_25}
-            {/* Отправить уведомление */}
+            Отправить уведомление
           </Button>
         </div>
       ) : (
         <div className="flex flex-col gap-4 max-w-80">
           <p>
-            {dictionary.LEX_26}
-            {/* Вы не подписаны на уведомления */}
+            Вы не подписаны на уведомления
           </p>
           <Button onClick={subscribeToPush}>
-            {dictionary.LEX_27}
-            {/* Подписаться */}
+            Подписаться
           </Button>
         </div>
       )}

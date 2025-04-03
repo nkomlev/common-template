@@ -1,7 +1,6 @@
 import prisma from "../../../prisma";
 import { redirect } from "next/navigation";
 import RegistrationForm from "@/app/adminRegistration/RegistrationForm";
-import MainTemplate from "@/components/templates/MainTemplate";
 
 const AdminRegistration = async () => {
   // Если для сервиса создан хотя бы один администратор, то вся остальная настройка, в том числе создание новых пользователей с ролью Администратор
@@ -20,11 +19,9 @@ const AdminRegistration = async () => {
   }
 
   return (
-    <MainTemplate>
-      <div className="w-full h-full flex items-center justify-center">
-        <RegistrationForm />
-      </div>
-    </MainTemplate>
+    <div className="w-full h-full flex items-center justify-center">
+      <RegistrationForm />
+    </div>
   );
 };
 

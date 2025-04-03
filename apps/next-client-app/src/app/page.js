@@ -1,4 +1,3 @@
-'use client';
 import MainPage from "@/app/MainPage";
 
 export default function Home() {

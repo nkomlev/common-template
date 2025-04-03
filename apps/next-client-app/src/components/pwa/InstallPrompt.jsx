@@ -1,16 +1,14 @@
 'use client';
 import React, { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@common-templates/shared/components/ui/button";
 import { useStore } from "@/store/useStore";
 import { useCurrentDevice } from "@/lib/hooks/useCurrentDevice";
-import { useDictionary } from "@/components/dictionaryProvider/DictionaryProvider";
 
 function InstallPrompt() {
   const [isStandalone, setIsStandalone] = useState(false);
   const [displayGuidePlatform, setDisplayGuidePlatform] = useState(null);
   const { beforeInstallPromptPWA, setBeforeInstallPromptPWA } = useStore();
   const currentDevice = useCurrentDevice();
-  const dictionary = useDictionary();
 
   if (typeof window !== "undefined") {
     window.addEventListener('beforeinstallprompt', (e) => {
@@ -38,7 +36,6 @@ function InstallPrompt() {
     }
     if (currentDevice !== 'mobile') return;
     if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      console.log(1);
       setDisplayGuidePlatform('iOS');
       return;
     }
@@ -49,14 +46,12 @@ function InstallPrompt() {
     return (
       <div className="mt-20 w-[400px] flex flex-col items-center">
         <h3 className="text-xl font-bold mb-4 text-center">
-          {dictionary.LEX_16}
-          {/* Установка PWA */}
+          Установка PWA
         </h3>
         <Button
           onClick={handleClick}
         >
-          {dictionary.LEX_17}
-          {/* Добавить на главный экран */}
+          Добавить на главный экран
         </Button>
         {displayGuidePlatform === 'iOS' && (
           <IOSInstallationGuide />
@@ -71,15 +66,14 @@ function InstallPrompt() {
 }
 
 const IOSInstallationGuide = () => {
-  const dictionary = useDictionary();
   return (
     <p className="mt-4">
-      {dictionary.LEX_18}
+      Чтобы установить приложение на ваше устройство нажмите кнопку 'Поделиться'
       <span role="img" aria-label="share icon">
             {' '}
         ⎋{' '}
           </span>
-      {dictionary.LEX_19}
+      и после нажмите 'Добавить на Экран Домой'
       <span role="img" aria-label="plus icon">
             {' '}
         ➕{' '}

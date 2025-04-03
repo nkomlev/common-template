@@ -19,7 +19,14 @@ export const useStore = create((set, get) => ({
       }
     )
   },
-  showWebAuthnRegistrationMessage: false
+  showWebAuthnRegistrationMessage: false,
+  setShowWebAuthnRegistrationMessage: (value) => {
+    set(
+      {
+        showWebAuthnRegistrationMessage: value
+      }
+    )
+  }
 }));
 
 export function clearCustomerData() {
