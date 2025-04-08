@@ -21,18 +21,6 @@ const MainPage = async () => {
               </Link>
             </li>
             <li className="hover:underline cursor-pointer">
-              <Link href="/auth/admin" className="flex gap-2">
-                <ExternalLinkIcon className="min-w-6" />
-                Админку, выполненую с помощью next-admin
-              </Link>
-            </li>
-            <li className="hover:underline cursor-pointer">
-              <Link href="/adminRegistration" className="flex gap-2">
-                <ExternalLinkIcon className="min-w-6" />
-                Регистрацию администратора, при развертывании пустого проекта
-              </Link>
-            </li>
-            <li className="hover:underline cursor-pointer">
               <Link href="/pwa" className="flex gap-2">
                 <ExternalLinkIcon className="min-w-6" />
                 Работу с PWA

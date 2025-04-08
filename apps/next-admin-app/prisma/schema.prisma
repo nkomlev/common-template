@@ -5,21 +5,12 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator nextAdmin {
-    provider              = "next-admin-generator-prisma"
-  }
-
-generator client {
-  provider = "prisma-client-js"
-  output   = "../../next-client-app/generated-prisma-client/prisma-client"
+  provider              = "next-admin-generator-prisma"
 }
 
 generator clientCommon {
   provider = "prisma-client-js"
-  output   = "../../../generated-prisma-client/prisma-client"
-}
-
-generator clientForAdmin {
-  provider = "prisma-client-js"
+  output   = "../../../node_modules/@prisma/client"
 }
 
 datasource db {

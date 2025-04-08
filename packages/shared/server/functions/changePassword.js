@@ -1,6 +1,5 @@
 'use server';
 
-import prisma from "../../../../prisma";
 import sha256 from "crypto-js/sha256";
 import {middlewareVerifyTokenWithoutRequest} from "../../lib/verifyToken";
 

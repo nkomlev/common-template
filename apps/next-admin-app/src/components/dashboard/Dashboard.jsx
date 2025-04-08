@@ -1,4 +1,4 @@
-import prisma from "../../../prisma";
+import prisma from "../../../../../prisma";
 
 const Dashboard = async () => {
   const totalCustomers = await prisma.customer.count();

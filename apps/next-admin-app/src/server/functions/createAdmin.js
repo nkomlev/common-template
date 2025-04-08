@@ -1,5 +1,5 @@
 'use server';
-import prisma from "../../../prisma";
+import prisma from "../../../../../prisma";
 import sha256 from "crypto-js/sha256";
 
 export const createAdminAction = async ({ login, firstName, lastName, password }) =>  {

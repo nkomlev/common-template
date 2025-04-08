@@ -1,4 +1,4 @@
-import prisma from "../../../prisma";
+import prisma from "../../../../../prisma";
 import { redirect } from "next/navigation";
 import RegistrationForm from "@/app/adminRegistration/RegistrationForm";
 
