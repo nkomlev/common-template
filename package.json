@@ -9,16 +9,14 @@
     "packages/*"
   ],
   "scripts": {
-    "generate-prisma-clients": "cd ./apps/next-admin-app && npx prisma generate",
+    "generate-prisma-client": "npx prisma generate",
     "dev-admin": "cd ./apps/next-admin-app && npm run dev",
     "dev-client": "cd ./apps/next-client-app && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "npm run build --workspace=@common-templates/shared"
+    "postinstall": "npm run build --workspace=@common-templates/shared",
+    "install-dependencies": "cd ./packages/shared && npm install && cd ../../apps/next-admin-app && npm install && cd ../next-client-app && npm install"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "mkdirp": "^3.0.1"
-  }
+  "license": "ISC"
 }

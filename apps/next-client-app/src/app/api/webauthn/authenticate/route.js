@@ -2,7 +2,7 @@ import {NextResponse} from "next/server";
 import {fido} from "@/server/webauthn/fido";
 import AES from "crypto-js/aes";
 import encUTF8 from "crypto-js/enc-utf8";
-import prisma from "../../../../../next-admin/prisma";
+import prisma from "../../../../../../../prisma";
 
 const origin = process.env.ORIGIN_URL;
 
