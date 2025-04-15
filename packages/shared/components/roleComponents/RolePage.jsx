@@ -1,4 +1,4 @@
-import {getCurrentCustomerData} from "../../server/functions";
+import {getCurrentCustomerData} from "../../server/functions/getCurrentCustomerData";
 
 // Компонент-обертка для создания страницы, доспуной только пользователям с определенными ролями
 const RolePage = async ({ children, rolesWithAccess = ['USER', 'ADMIN', 'SUPPORT'], currentCustomerId, noRoleHandler }) => {

@@ -1,5 +1,5 @@
 'use server';
-import {authorization} from "@common-templates/shared/server/functions";
+import {authorization} from "@common-templates/shared/server/functions/authorization";
 import prisma from "../../../../../prisma";
 import {cookies} from "next/headers";
 import sha256 from "crypto-js/sha256";

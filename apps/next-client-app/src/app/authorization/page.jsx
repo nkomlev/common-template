@@ -4,7 +4,7 @@ import LoginForm from "@common-templates/shared/components/LoginForm/LoginForm";
 import {auth} from "@/server/functions/auth";
 import {useRouter} from "next/navigation";
 import {useStore} from "@/store/useStore";
-import {getCurrentCustomerData} from "@common-templates/shared/server/functions";
+import {getCurrentCustomerData} from "@common-templates/shared/server/functions/getCurrentCustomerData";
 import {authenticate} from "@/lib/webauthn/requests";
 
 const LoginPage = () => {

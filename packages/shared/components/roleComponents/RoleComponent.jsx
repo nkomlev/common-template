@@ -1,4 +1,4 @@
-import {getCurrentCustomerData} from "../../server/functions";
+import {getCurrentCustomerData} from "../../server/functions/getCurrentCustomerData";
 
 // Компонент-обретка для создания компонент, доступных только пользователям с определенной ролью
 const RolePage = async ({ children, rolesWithAccess = ['USER', 'ADMIN', 'SUPPORT'] }) => {

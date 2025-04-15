@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { changePassword } from "@common-templates/shared/server/functions/changePassword";
 import { useCookies } from "next-client-cookies";
 import { useStore } from "@/store/useStore";
-import { getCurrentCustomerData } from "@common-templates/shared/server/functions";
+import { getCurrentCustomerData } from "@common-templates/shared/server/functions/getCurrentCustomerData";
 
 const ProfileForm = () => {
   const cookies = useCookies();

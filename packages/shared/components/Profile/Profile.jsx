@@ -1,5 +1,5 @@
 'use client';
-import { getCurrentCustomerData } from "../../server/functions";
+import { getCurrentCustomerData } from "../../server/functions/getCurrentCustomerData";
 import { InputWithTitle } from "../ui/input";
 import ChangePasswordForm from "../ChangePasswordForm/ChangePasswordForm";
 import AvatarSettings from "../AvatarSettings/AvatarSettings";

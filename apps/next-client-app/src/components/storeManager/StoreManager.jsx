@@ -1,6 +1,6 @@
 'use client';
 import { useEffect } from "react";
-import { getCurrentCustomerData } from "@common-templates/shared/server/functions";
+import { getCurrentCustomerData } from "@common-templates/shared/server/functions/getCurrentCustomerData";
 import { useCookies } from "next-client-cookies";
 import { useStore } from "@/store/useStore";
 
