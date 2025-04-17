@@ -1,5 +1,5 @@
 'use server';
-import prisma from "../../../../prisma";
+import prisma from "../../../../prisma.js";
 
 export const getCurrentCustomerData = async (customerId) =>  {
   try {

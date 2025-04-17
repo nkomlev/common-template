@@ -1,7 +1,7 @@
 'use server';
 
 import webpush from 'web-push';
-import prisma from "../../../../../prisma";
+import prisma from "../../../../../prisma.js";
 import {cookies} from "next/headers";
 
 webpush.setVapidDetails(
@@ -14,8 +14,8 @@ let subscription = null;
 
 export async function subscribeUser(sub) {
   try {
-    subscription = sub;
-    delete sub.expirationTime;
+    subscription = JSON.parse(sub);
+    delete subscription.expirationTime;
 
     const currentCustomerId = Number((await cookies()).get('customerId').value)
 
@@ -30,16 +30,16 @@ export async function subscribeUser(sub) {
         where: {
           id: existSubForCurrentUser.id
         },
-        data: sub
+        data: subscription
       });
     } else {
-      sub.customer = {
+      subscription.customer = {
         connect: {
           id: currentCustomerId
         }
       }
       await prisma.pushSubscription.create({
-        data: sub
+        data: subscription
       });
     }
 

@@ -1,4 +1,4 @@
-import prisma from "../../../../../prisma";
+import prisma from "../../../../../prisma.js";
 import { redirect } from "next/navigation";
 import RegistrationForm from "@/app/adminRegistration/RegistrationForm";
 
@@ -15,7 +15,7 @@ const AdminRegistration = async () => {
   });
 
   if (isCustomersAvailable) {
-    redirect('/authorization');
+    redirect('/');
   }
 
   return (

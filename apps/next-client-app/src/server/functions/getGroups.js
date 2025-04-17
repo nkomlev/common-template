@@ -1,6 +1,6 @@
 'use server';
 
-import prisma from "../../../../../prisma";
+import prisma from "../../../../../prisma.js";
 
 export const getGroups = async () =>  {
   try {

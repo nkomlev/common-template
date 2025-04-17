@@ -15,21 +15,27 @@ export function useWebAuthn() {
     }, []);
 
     const handleRegister = async (currentCustomer) => {
-        const resData = await register({
-            id: currentCustomer.id,
-            name : currentCustomer.login,
-            displayName : currentCustomer.login
-        });
+        try {
+            const resData = await register({
+                id: currentCustomer.id,
+                name : currentCustomer.login,
+                displayName : currentCustomer.login
+            });
 
-        if (resData.success === true) {
-            showApprove({
-                title: <div>
-                    Ключ доступа создан.
-                </div>
-            })
-            return true;
-        } else {
-            showError({ title: 'Произошла непредвиденная ошибка. Пожалуйста, повторите свое последнее действие.' });
+            if (resData.success === true) {
+                showApprove({
+                    title: <div>
+                        Ключ доступа создан.
+                    </div>
+                })
+                return true;
+            } else {
+                showError({ title: 'Произошла непредвиденная ошибка. Пожалуйста, повторите свое последнее действие.' });
+                return false;
+            }
+        } catch (e) {
+            console.log(e);
+            showError({ title: e.message });
             return false;
         }
     }

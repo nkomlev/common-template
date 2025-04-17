@@ -1,10 +1,10 @@
 'use server';
 import {authorization} from "@common-templates/shared/server/functions/authorization";
-import prisma from "../../../../../prisma";
+import prisma from "../../../../../prisma.js";
 import {cookies} from "next/headers";
 import sha256 from "crypto-js/sha256";
 
-async function authorizeByCredential(credential, challenge) {
+async function authorizeByCredential({ credential, challenge }) {
   const res = await (await fetch(`${process.env.ORIGIN_URL}/api/webauthn/authenticate`, {
     method: 'POST',
     mode: 'cors',

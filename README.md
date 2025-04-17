@@ -34,18 +34,21 @@
 
 Для корректной работы необходимо сделать следующее:
 
-
-1. **Настройка .env для next-admin-app**
+1. **Настройка .env в корне проекта**
 
 ```
 DATABASE_URL="postgresql://testadmin:123456@localhost:5432/test?schema=public"
+```
+
+2. **Настройка .env для next-admin-app**
+
+```
 JWT_SECRET="secret"
 ```
 
-2. **Настройка .env для next-client-app**
+3. **Настройка .env для next-client-app**
 
 ```
-DATABASE_URL="postgresql://testadmin:123456@localhost:5432/test?schema=public"
 JWT_SECRET="secret"
 NEXT_PUBLIC_VAPID_PUBLIC_KEY = BKA8Tv4SCygZtL9oHVZXCsVsb_k2RGnfzZ820f_m4F0GovyhG3UigN9mfmrpXxV6yRWrGNBqt2Ko7o__GF3kly8
 VAPID_PRIVATE_KEY = m_mhR0RrCeWKZYkIlg_MJk_sEszpDK9EhqPXzTrQ7To
@@ -60,21 +63,31 @@ npm i web-push -g
 
 web-push generate-vapid-keys / npx web-push generate-vapid-keys
 
-3. **Установка пакетов**
+4. **Установка пакетов**
 
 ```
 Запуск скрипта в корне проекта
 npm run install-dependencies
 ```
 
-4. **Генерация клиентов prisma**
+5. **Подготовка prisma и базы данных **
+
+```
+1. Установка prisma
+   npm i prisma -g
+2. Обновление базы данных
+   prisma migrate dev / prisma db push   
+
+```
+
+6. **Генерация клиентов prisma**
 
 ```
 Запуск скрипта в корне проекта
-npm run generate-prisma-client
+npm run generate-prisma-client / prisma generate
 ```
 
-5. Запускаем проекты next-admin-app и next-client-app
+7. Запускаем проекты next-admin-app и next-client-app
 
 ```
 npm run dev в директории проекта /apps/...

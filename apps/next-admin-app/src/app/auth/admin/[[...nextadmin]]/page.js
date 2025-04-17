@@ -1,6 +1,6 @@
 import { NextAdmin } from "@premieroctet/next-admin";
 import { getNextAdminProps } from "@premieroctet/next-admin/appRouter";
-import prisma from "../../../../../../../prisma";
+import prisma from "../../../../../../../prisma.js";
 import options from "../../../../../nextAdminOptions";
 import '../../../../../nextAdminCss.css';
 import Dashboard from "@/components/dashboard/Dashboard";

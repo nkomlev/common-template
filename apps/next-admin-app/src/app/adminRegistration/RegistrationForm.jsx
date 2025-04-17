@@ -60,7 +60,7 @@ const RegistrationForm = () => {
     }
 
     showApprove({ title: "Пользователь успешно создан!" });
-    redirect('/authorization');
+    redirect('/');
   }
 
   return (

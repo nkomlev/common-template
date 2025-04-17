@@ -1,5 +1,5 @@
 'use server';
-import prisma from "../../../../prisma";
+import prisma from "../../../../prisma.js";
 import { middlewareVerifyTokenWithoutRequest } from "../../lib/verifyToken";
 
 export const setProfileImage = async ({ customerId, profileImage }) =>  {

@@ -14,8 +14,9 @@ export const verifyJwtToken = async (token, secret) => {
   }
 }
 
-export const middlewareVerifyTokenWithoutRequest = async (token, secret) => {
-  const currentClient = token && (await verifyJwtToken(token.value));
+export const middlewareVerifyTokenWithoutRequest = async (token) => {
+  const currentClient = token && (await verifyJwtToken(token));
+
   if (!currentClient) {
     return { success: false, message: 'Некорректный токен' };
   }
