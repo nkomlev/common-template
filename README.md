@@ -71,7 +71,7 @@ npm run install-dependencies
 
 ```
 Запуск скрипта в корне проекта
-npm run generate-prisma-clients
+npm run generate-prisma-client
 ```
 
 5. Запускаем проекты next-admin-app и next-client-app
