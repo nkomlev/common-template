@@ -1,7 +1,7 @@
 'use server';
 
 import webpush from 'web-push';
-import prisma from "../../../../../prisma.js";
+import prisma from "@common/prisma";
 import {cookies} from "next/headers";
 
 webpush.setVapidDetails(

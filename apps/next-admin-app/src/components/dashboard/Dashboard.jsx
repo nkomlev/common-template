@@ -1,4 +1,4 @@
-import prisma from "../../../../../prisma.js";
+import prisma from "@common/prisma";
 
 const Dashboard = async () => {
   const totalCustomers = await prisma.customer.count();

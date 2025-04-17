@@ -1,4 +1,4 @@
-import prisma from "../../../../../../../../prisma.js";
+import prisma from "@common/prisma";
 import { createHandler } from "@premieroctet/next-admin/appHandler";
 import options from "../../../../../../nextAdminOptions";
 

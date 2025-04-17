@@ -1,4 +1,4 @@
-import prisma from "../../../../../prisma.js";
+import prisma from "@common/prisma";
 import { redirect } from "next/navigation";
 import RegistrationForm from "@/app/adminRegistration/RegistrationForm";
 

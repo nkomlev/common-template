@@ -67,7 +67,7 @@ web-push generate-vapid-keys / npx web-push generate-vapid-keys
 
 ```
 Запуск скрипта в корне проекта
-npm run install-dependencies
+npm install
 ```
 
 5. **Подготовка prisma и базы данных **
@@ -84,7 +84,7 @@ npm run install-dependencies
 
 ```
 Запуск скрипта в корне проекта
-npm run generate-prisma-client / prisma generate
+prisma generate
 ```
 
 7. Запускаем проекты next-admin-app и next-client-app

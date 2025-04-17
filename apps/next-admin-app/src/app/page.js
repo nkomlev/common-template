@@ -1,5 +1,5 @@
 import {redirect} from "next/navigation";
-import prisma from "../../../../prisma.js";
+import prisma from "@common/prisma";
 import LoginPage from "@/components/LoginPage/LoginPage";
 
 export default async function Authorization() {
