@@ -20,7 +20,7 @@
     - Установка PWA 
     - Отправка WebPush
 
-Оба сервиса используют next v15.1.7 и tailwind v3.4.17
+Оба сервиса используют next v15.3.2 и tailwind v3.4.17
 
 ### Описание структуры 
 
@@ -29,6 +29,30 @@
 /apps - директория, содержащая админскую и клиенсткую части
 /packages/share - функции и компоненты общие для разных частей 
 /uploads - директория для хранения статики
+
+### Быстрый старт 
+
+1. Для корректной работы необходимо выполнить первые три пункта из части "Запуск проекта", то есть настроить файлы .env
+
+2. Выполнить команду инициализации проекта:
+
+```
+npm run init
+```
+
+При необходимости переименовать проект необходимо добавить параметр
+
+```
+NAME=Новое имя проекта npm run init
+```
+
+3. Запускаем проекты next-admin-app и next-client-app
+
+```
+npm run dev в директории проекта /apps/...
+или
+npm run dev-admin / npm run dev-client в корне проекта
+```
 
 ### Запуск проекта 
 
@@ -44,6 +68,7 @@ DATABASE_URL="postgresql://testadmin:123456@localhost:5432/test?schema=public"
 
 ```
 JWT_SECRET="secret"
+DATABASE_URL="postgresql://testadmin:123456@localhost:5432/test?schema=public"
 ```
 
 3. **Настройка .env для next-client-app**
@@ -55,6 +80,7 @@ VAPID_PRIVATE_KEY = m_mhR0RrCeWKZYkIlg_MJk_sEszpDK9EhqPXzTrQ7To
 DOMAIN_NAME = localhost
 NEXT_PUBLIC_APP_NAME = Common App Template
 ORIGIN_URL=http://localhost:3000
+DATABASE_URL="postgresql://testadmin:123456@localhost:5432/test?schema=public"
 ```
 
 Чтобы получить Vapid Keys необходимо сделать следующее:
@@ -63,14 +89,22 @@ npm i web-push -g
 
 web-push generate-vapid-keys / npx web-push generate-vapid-keys
 
-4. **Установка пакетов**
+4. **Переименовывание проекта**
+
+Чтобы переименовать проект необходимо выполнить следующую команду в корне проекта:
+
+```
+npm run rename -- --newName=Новое имя проекта
+```
+
+5. **Установка пакетов**
 
 ```
 Запуск скрипта в корне проекта
 npm install
 ```
 
-5. **Подготовка prisma и базы данных **
+6. **Подготовка prisma и базы данных **
 
 ```
 1. Установка prisma
@@ -80,14 +114,14 @@ npm install
 
 ```
 
-6. **Генерация клиентов prisma**
+7. **Генерация клиентов prisma**
 
 ```
 Запуск скрипта в корне проекта
 prisma generate
 ```
 
-7. Запускаем проекты next-admin-app и next-client-app
+8. **Запускаем проекты next-admin-app и next-client-app**
 
 ```
 npm run dev в директории проекта /apps/...

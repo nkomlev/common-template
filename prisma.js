@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from './packages/shared/prisma/client'
 
 const globalForPrisma = global;
 
