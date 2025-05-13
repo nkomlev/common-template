@@ -4,7 +4,7 @@ const path = require('path');
 
 const renameProject = () => {
   const args = process.argv.slice(2);
-  const oldName = 'common-tempates';
+  const oldName = 'common-templates';
   const newName = args[0].replace('--newName=', '').replaceAll(' ', '');
   const excludeDirs = ['node_modules', '.git', 'dist', 'scripts']; // Директории для исключения
 
