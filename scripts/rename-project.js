@@ -1,12 +1,20 @@
 const fs = require('fs');
 const path = require('path');
+const readline = require('node:readline');
+const { stdin: input, stdout: output } = require('node:process');
 
+const askProjectName = () => {
+  const rl = readline.createInterface({ input, output });
 
-const renameProject = () => {
-  const args = process.argv.slice(2);
+  rl.question('Enter new project name: ', (answer) => {
+    renameProject(answer);
+    rl.close();
+  });
+}
+
+const renameProject = (newName) => {
+  const excludeDirs = ['node_modules', '.git']; // Директории для исключения
   const oldName = 'common-templates';
-  const newName = args[0].replace('--newName=', '').replaceAll(' ', '');
-  const excludeDirs = ['node_modules', '.git', 'dist', 'scripts']; // Директории для исключения
 
   function replaceInFile(filePath) {
     const content = fs.readFileSync(filePath, 'utf-8');
@@ -37,5 +45,5 @@ const renameProject = () => {
   }
 }
 
-renameProject();
+askProjectName();
 

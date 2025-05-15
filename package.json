@@ -13,7 +13,7 @@
     "dev-client": "cd ./apps/next-client-app && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "npm run build --workspace=@common-templates/shared",
-    "init": "node scripts/rename-project.js --newName=$NAME && npm install && prisma db push && prisma generate",
+    "init": "node scripts/rename-project.js && npm install && prisma db push && prisma generate",
     "rename": "node scripts/rename-project.js"
   },
   "keywords": [],

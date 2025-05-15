@@ -40,12 +40,6 @@
 npm run init
 ```
 
-При необходимости переименовать проект необходимо добавить параметр
-
-```
-NAME=Новое имя проекта npm run init
-```
-
 3. Запускаем проекты next-admin-app и next-client-app
 
 ```
@@ -94,7 +88,7 @@ web-push generate-vapid-keys / npx web-push generate-vapid-keys
 Чтобы переименовать проект необходимо выполнить следующую команду в корне проекта:
 
 ```
-npm run rename -- --newName=Новое имя проекта
+npm run rename
 ```
 
 5. **Установка пакетов**
