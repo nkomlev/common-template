@@ -13,8 +13,9 @@
     "dev-client": "cd ./apps/next-client-app && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "npm run build --workspace=@common-templates/shared",
-    "init": "node scripts/rename-project.js && npm install && prisma db push && prisma generate",
-    "rename": "node scripts/rename-project.js"
+    "init": "node scripts/rename-project.js && npm install && prisma db push && cd apps/next-admin-app && prisma generate",
+    "rename": "node scripts/rename-project.js",
+    "generate-prisma-client": "cd apps/next-admin-app && prisma generate"
   },
   "keywords": [],
   "author": "",

@@ -6,7 +6,7 @@ const { stdin: input, stdout: output } = require('node:process');
 const askProjectName = () => {
   const rl = readline.createInterface({ input, output });
 
-  rl.question('Enter new project name: ', (answer) => {
+  rl.question('Enter new project name (Leave empty to skip): ', (answer) => {
     renameProject(answer);
     rl.close();
   });

@@ -10,7 +10,7 @@ generator nextAdmin {
 
 generator clientCommon {
   provider = "prisma-client-js"
-  output = "../packages/shared/prisma/client"
+  output = "../../../packages/shared/prisma/client"
 }
 
 datasource db {

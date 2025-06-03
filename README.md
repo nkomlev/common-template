@@ -112,7 +112,7 @@ npm install
 
 ```
 Запуск скрипта в корне проекта
-prisma generate
+npm run generate-prisma-client
 ```
 
 8. **Запускаем проекты next-admin-app и next-client-app**
