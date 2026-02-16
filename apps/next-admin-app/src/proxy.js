@@ -6,7 +6,7 @@ const AUTH_PATH_PREFIXES = [
   '/auth/'
 ];
 
-export async function middleware(request) {
+export async function proxy(request) {
   let response = NextResponse.next();
 
   if (request.method === 'OPTIONS') {

@@ -10,7 +10,7 @@
   "dependencies": {
     "@common-templates/shared": "^1.0.0",
     "fido2-lib": "^3.5.3",
-    "next": "15.5.12",
+    "next": "16.1.6",
     "next-client-cookies": "^2.0.1",
     "web-push": "^3.6.7",
     "zustand": "^5.0.3"
