@@ -1,6 +1,6 @@
 'use server';
 import prisma from "@common/prisma";
-import sha256 from "crypto-js/sha256";
+import {createHash} from "crypto";
 
 export const createAdminAction = async ({ login, firstName, lastName, password }) =>  {
   try {
@@ -36,7 +36,7 @@ export const createAdminAction = async ({ login, firstName, lastName, password }
         id: admin.id
       },
       data: {
-        hashedPassword: `hashed-${sha256(admin.id + '/' + password)}`
+        hashedPassword: `hashed-${createHash('sha256').update(admin.id + '/' + password).digest('hex')}`
       }
     })
 

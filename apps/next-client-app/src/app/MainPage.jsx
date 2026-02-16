@@ -2,6 +2,7 @@ import Link from "next/link";
 import MainTemplate from "@/components/template/MainTemplate";
 import { ExternalLinkIcon } from "lucide-react";
 import WebAuthnRegistrationDialog from "@/components/webAuthRegistrationDialog/WebAuthRegistrationDialog";
+import Calendar from "@/components/calendar/Calendar";
 
 const MainPage = async () => {
   return (
@@ -27,6 +28,7 @@ const MainPage = async () => {
               </Link>
             </li>
           </ul>
+          <Calendar />
         </div>
       </div>
       <WebAuthnRegistrationDialog />

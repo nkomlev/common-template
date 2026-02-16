@@ -2,7 +2,7 @@
 import {authorization} from "@common-templates/shared/server/functions/authorization";
 import prisma from "@common/prisma";
 import {cookies} from "next/headers";
-import sha256 from "crypto-js/sha256";
+import {createHash} from "crypto";
 
 async function authorizeByCredential({ credential, challenge }) {
   const res = await (await fetch(`${process.env.ORIGIN_URL}/api/webauthn/authenticate`, {
@@ -53,7 +53,7 @@ const authByPassword = async ({ login, password }) => {
     }
 
     // хэшированный пароль имеет префикс hash.v1#
-    if (`hashed-${sha256(user.id + '/' + password)}` === user.hashedPassword) {
+    if (`hashed-${createHash('sha256').update(user.id + '/' + password).digest('hex')}` === user.hashedPassword) {
       return user;
     }
   }

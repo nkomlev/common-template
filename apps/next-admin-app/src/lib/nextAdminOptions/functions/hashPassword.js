@@ -1,4 +1,4 @@
-import sha256 from "crypto-js/sha256";
+import { createHash } from 'crypto';
 import prisma from "@common/prisma";
 
 // Чтобы поддержать возможность задавать пароль в явном виде, но не хранить его так используется функция,
@@ -7,7 +7,7 @@ export const hashCustomerPassword = async (customer) => {
   try {
     let hashedPassword = customer.data.hashedPassword;
     if (!hashedPassword.includes('hashed-')) {
-      hashedPassword = `hashed-${sha256(customer.data.id + '/' + hashedPassword)}`;
+      hashedPassword = `hashed-${createHash('sha256').update(customer.data.id + '/' + hashedPassword).digest('hex')}`;
       await prisma.customer.update({
         where: {
           id: customer.data.id
